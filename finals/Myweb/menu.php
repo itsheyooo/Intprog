@@ -42,37 +42,22 @@
 
     <section class="menu-container">
         <?php
-        // Define REST API endpoint to fetch food items
-        $apiUrl = "https://localhost/menu";  // Replace with your actual API URL
+        // Array of food items and their corresponding images
+        $foods = [
+            "Adobo" => "adobo.jpg",
+            "Sinigang" => "Sinigang.jpg",
+            "Kare-Kare" => "karekare.jpg",
+            "Lechon" => "lechon.jpg",
+            "Bulalo" => "bulalo.jpg",
+            "Menudo" => "menudo.jpg"
+        ];
 
-        // Initialize a cURL session to fetch data from the API
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $apiUrl);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, [
-            'Content-Type: application/json'
-        ]);
-
-        $response = curl_exec($ch);
-        curl_close($ch);
-
-        // Decode the JSON response into an associative array
-        $foods = json_decode($response, true);
-
-        // Check if the response contains food items
-        if (!empty($foods) && is_array($foods)) {
-            // Loop to display each food item with an image
-            foreach ($foods as $food) {
-                $foodName = htmlspecialchars($food['name']); // Sanitize output
-                $imageUrl = htmlspecialchars($food['image_url']); // Sanitize output
-
-                echo "<div class='menu-item'>";
-                echo "<img src='$imageUrl' alt='$foodName'>";
-                echo "<h3>$foodName</h3>";
-                echo "</div>";
-            }
-        } else {
-            echo "<p>No food items available at the moment.</p>";
+        // Loop to display each food item with an image
+        foreach ($foods as $food => $image) {
+            echo "<div class='menu-item'>";
+            echo "<img src='images/$image' alt='$food'>";
+            echo "<h3>$food</h3>";
+            echo "</div>";
         }
         ?>
     </section>

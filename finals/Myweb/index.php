@@ -29,6 +29,7 @@
         <li><a href="<?php echo "home.php"; ?>" id="home-link">Home</a></li>
         <li><a href="<?php echo "member_info.php"; ?>" id="member-info-link">Member Info</a></li>
         <li><a href="<?php echo "contact.php"; ?>" id="contact-link">Contact Us:</a></li> 
+        <li><a href="<?php echo "foods.php"; ?>" id="food-link">Avail Food:</a></li> 
         <li>
             <div class="search-bar">
                 <input type="text" id="search" name="search" placeholder="Search..." onkeyup="showSuggestions(this.value)" autocomplete="off">
